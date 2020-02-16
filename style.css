@@ -1,34 +1,10 @@
 #leftBar {
+    padding: 5%;
     position: absolute;
     background-color: aquamarine;
     min-height: 100%;
 }
 /* left search row bar--------------------------------------------------------------------------------------------------------- */
-
-body {
-    background-color: chocolate;
-}
-
-#clickContent {
-    flex: auto;
-    padding: 5%;
-    left: 10%;
-    position: relative;
-    height: 100%;
-    background-color: burlywood;
-    width: 60%;
-}
-
-#fiveDay {
-    flex: content;
-    padding: 5%;
-    left: 10%;
-    position: relative;
-    height: 100%;
-    background-color: cornflowerblue;
-    width: 60%;
-}
-
 #bigBox {
     background-color: blue;
     position: absolute;
@@ -38,6 +14,56 @@ body {
 #pastCities {
     height: 100%;
 }
+
+/* left search row bar--------------------------------------------------------------------------------------------------------- */
+/* body--------------------------------------------------------------------------------------------------------------------------------------- */
+body {
+    background-color: chocolate;
+}
+/* body ------------------------------------------------------------------------------------------------------------*/
+/* 2 row content and container------------------------------------------------------------------------------------------------ */
+
+
+.rightCont {
+    left: 28%;
+    position: fixed;
+    padding: 2%;
+    min-height: 100%;
+    width: 70%;
+    background-color: crimson;
+}
+
+#clickContent {
+    flex: auto;
+    padding: 5%;
+    position: fixed;
+    height: 50%;
+    width: 65%;
+    background-color: burlywood;
+}
+
+#innerContent {
+    height: 100%;
+    background-color: darkgoldenrod;
+}
+
+#fiveDay {
+    top: 60%;
+    flex: content;
+    padding: 5%;
+    position: fixed;
+    background-color: cornflowerblue;
+    width: 65%;
+    height: 75%;
+}
+
+#fiveDayInnerContent {
+    height: 50%;
+    background-color: darkgreen;
+}
+/* 2 row content and container------------------------------------------------------------------------------------------------ */
+
+
 
 
 
