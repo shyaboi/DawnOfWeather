@@ -9,6 +9,26 @@ body {
     background-color: chocolate;
 }
 
+#clickContent {
+    flex: auto;
+    padding: 5%;
+    left: 10%;
+    position: relative;
+    height: 100%;
+    background-color: burlywood;
+    width: 60%;
+}
+
+#fiveDay {
+    flex: content;
+    padding: 5%;
+    left: 10%;
+    position: relative;
+    height: 100%;
+    background-color: cornflowerblue;
+    width: 60%;
+}
+
 #bigBox {
     background-color: blue;
     position: absolute;
