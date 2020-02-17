@@ -43,19 +43,22 @@ body {
 }
 
 #innerContent {
+    text-align: center;
+    padding: 10%;
     height: 100%;
     background-color: darkgoldenrod;
 }
-
+/* ------------------------------------------------------------------------------------------------------------ */
 #fiveDay {
     top: 60%;
-    flex: content;
+    /* flex: content; */
     padding: 5%;
     position: fixed;
     background-color: cornflowerblue;
     width: 65%;
     height: 75%;
 }
+
 
 #fiveDayInnerContent {
     height: 50%;
@@ -64,9 +67,46 @@ body {
 /* 2 row content and container------------------------------------------------------------------------------------------------ */
 
 
+#dayOne {
+    top: 0;
+    float: left;
+    position: relative;
+    margin: 1%;
+    padding: 5%;
+    background-color: black;
+}
 
+#dayTwo {
+    margin: 1%;
+    float: left;
+    position: relative;
+    padding: 5%;
+    background-color: black;
+}
 
+#dayThr {
+    float: left;
+    margin: 1%;
+    position: relative;
+    padding: 5%;
+    background-color: black;
+}
 
+#dayFou {
+    margin: 1%;
+    float: left;
+    position: relative;
+    padding: 5%;
+    background-color: black;
+}
+
+#dayFiv {
+    margin: 1%;
+    float: left;
+    position: relative;
+    padding: 5%;
+    background-color: black;
+}
 /* buttons ------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 #search {
     width: 100%;

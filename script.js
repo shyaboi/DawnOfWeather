@@ -14,3 +14,11 @@ $(document).ready(function() {
         ($('#search').val());
     });
   });
+
+
+  $("#search").keypress(function(event) { 
+    if (event.keyCode === 13) { 
+        $("#searchBtn").click(); 
+        ($('#search').val());
+    } 
+}); 
