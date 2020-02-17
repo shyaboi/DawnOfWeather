@@ -42,11 +42,58 @@ body {
     background-color: burlywood;
 }
 
-#innerContent {
+#cityName {
+    font-size: xx-large;
+    font-family: 'Gruppo', cursive;
+    top: auto;
+    position: relative;
+    padding: 5%;
+    height: 10%;
     text-align: center;
-    padding: 10%;
+    width: 100%;
+    background-color: blueviolet;
+}
+
+#innerContent {
+    position: relative;
+    text-align: center;
     height: 100%;
     background-color: darkgoldenrod;
+}
+
+#currentWeather {
+    top: 5%;
+    padding: 2%;
+    position: relative;
+    height: 50%;
+    float: left;
+    text-align: left;
+    background-color: brown;
+    width: 75%;
+}
+
+#currentTemp {
+    position: relative;
+    font-size: x-large;
+    padding: 5%;
+    background-color: burlywood;
+    font-family: 'Gruppo', cursive;
+}
+
+#currentHumid {
+    position: relative;
+    font-size: x-large;
+    font-family: 'Gruppo', cursive;
+    background-color: chartreuse;
+    padding: 5%;
+}
+
+#currentWind {
+    position: relative;
+    font-size: x-large;
+    font-family: 'Gruppo', cursive;
+    background-color: crimson;
+    padding: 5%;
 }
 /* ------------------------------------------------------------------------------------------------------------ */
 #fiveDay {
@@ -57,7 +104,7 @@ body {
     background-color: cornflowerblue;
     width: 65%;
     height: 75%;
-}
+}1
 
 
 #fiveDayInnerContent {
@@ -68,6 +115,7 @@ body {
 
 
 #dayOne {
+    height: 100%;
     top: 0;
     float: left;
     position: relative;
@@ -77,6 +125,7 @@ body {
 }
 
 #dayTwo {
+    height: 100%;
     margin: 1%;
     float: left;
     position: relative;
@@ -85,6 +134,7 @@ body {
 }
 
 #dayThr {
+    height: 100%;
     float: left;
     margin: 1%;
     position: relative;
@@ -93,6 +143,7 @@ body {
 }
 
 #dayFou {
+    height: 100%;
     margin: 1%;
     float: left;
     position: relative;
@@ -101,6 +152,7 @@ body {
 }
 
 #dayFiv {
+    height: 100%;
     margin: 1%;
     float: left;
     position: relative;

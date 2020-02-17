@@ -23,10 +23,18 @@ $(document).ready(function(){
                 // console.log(data.main.temp_min)
                 // console.log(data.main.temp_max)
                 // console.log(data.main.humidity)
-                // console.log(data.wind.speed)
                 localStorage.setItem("City", JSON.stringify(city))
+                cityName = data.name
                 temp = data.main.temp
-                $('#innerContent').text(temp);
+                humid = data.main.humidity
+                windSpeed = data.wind.speed
+                // $('#innerContent').text(temp);
+                // $('#innerContent').text(humid);
+                $('#cityName').text(cityName)
+                $('#currentTemp').text('Temperature'+' ' +temp+' '+'F°');
+                $('#currentHumid').text('Humidity:'+' '+humid+' '+'%');
+                $('#currentWind').text('Wind Speed:'+' '+windSpeed+' '+'MPH');
+
 
                 // console.log(temp)
 
@@ -72,6 +80,12 @@ $(document).ready(function(){
                 dayThrTemp = data.list[2].main.temp
                 dayFouTemp = data.list[3].main.temp
                 dayFivTemp = data.list[4].main.temp
+
+                dayOneHumid = data.list[0].main.humidity
+                dayOneHumid = data.list[1].main.humidity
+                dayOneHumid = data.list[2].main.humidity
+                dayOneHumid = data.list[3].main.humidity
+                dayOneHumid = data.list[4].main.humidity
 
                 $('#dayOne').text(dayOneTemp);
                 $('#dayTwo').text(dayTwoTemp);
