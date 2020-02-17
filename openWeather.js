@@ -17,31 +17,25 @@ $(document).ready(function(){
             type: "GET",
             dataType: "jsonp",
             success: function (data) {
-                
-                // console.log(data.main.temp)
-                // console.log(data.main.feels_like)
-                // console.log(data.main.temp_min)
-                // console.log(data.main.temp_max)
-                // console.log(data.main.humidity)
+                // city storage-----
                 localStorage.setItem("City", JSON.stringify(city))
+                // data to var-----------------------------------------------------------------------------------------------------------------
                 cityName = data.name
                 temp = data.main.temp
                 humid = data.main.humidity
                 windSpeed = data.wind.speed
+                lon = data.coord.lon
+                lat = data.coord.lat
                 var iconCode = data.weather[0].icon;
                 var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
                 $("#icon").html("<img src='" + iconUrl  + "'>");
-                // $('#innerContent').text(temp);
-                // $('#innerContent').text(humid);
+                localStorage.setItem("Lat", JSON.stringify(lat))
+                localStorage.setItem("Lon", JSON.stringify(lon))
+                // main temp print------------------------------------------------------------------------------------------------------------------------------
                 $('#cityName').text(cityName)
                 $('#currentTemp').text('Temperature'+' ' +temp+' '+'F°');
                 $('#currentHumid').text('Humidity:'+' '+humid+' '+'%');
                 $('#currentWind').text('Wind Speed:'+' '+windSpeed+' '+'MPH');
-
-
-
-                // console.log(temp)
-
             }
         });
     }
@@ -67,18 +61,15 @@ $(document).ready(function(){
     if(city != ''){
 
         $.ajax({
-
+// ajax to open weather for 5 day---------------------------------------------------------------------------------------------------------
             url: "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial" + 
             "&APPID=1fdbaf1673606b82b778b52e97f9ce57",
             type: "GET",
             dataType: "jsonp",
+            // succsess data ------------------------------------------------------------------------------------------------------------------------------
             success: function (data) {
-                // console.log(data.list[0].main.temp)
-                // console.log(data.list[1].main.temp)
-                // console.log(data.list[2].main.temp)
-                // console.log(data.list[3].main.temp)
-                // console.log(data.list[4].main.temp)
-                // console.log(data.list[0].main.humidity)
+             
+                // weather icon list for 5 day----------------------------------------------------------------------------------------------------------------------------------------------------------
                 var iconCode = data.list[0].weather[0].icon;
                 var iconCodeTwo = data.list[1].weather[0].icon;
                 var iconCodeThr = data.list[2].weather[0].icon;
@@ -92,7 +83,14 @@ $(document).ready(function(){
                 var iconUrl = "http://openweathermap.org/img/w/" + iconCodeFou + ".png";
                 var iconUrl = "http://openweathermap.org/img/w/" + iconCodeFiv + ".png";
 
-                
+
+                $("#iconDayOne").html("<img src='" + iconUrl  + "'>");
+                $("#iconDayTwo").html("<img src='" + iconUrl  + "'>");
+                $("#iconDayThr").html("<img src='" + iconUrl  + "'>");
+                $("#iconDayFou").html("<img src='" + iconUrl  + "'>");
+                $("#iconDayFiv").html("<img src='" + iconUrl  + "'>");
+                // weather icon list for 5 day----------------------------------------------------------------------------------------------------------------------------------------------------------
+                // weather temp and humidity list for 5 day----------------------------------------------------------------------------------------------------------------------------------------------------------
                 dayOneTemp = data.list[0].main.temp
                 dayTwoTemp = data.list[1].main.temp
                 dayThrTemp = data.list[2].main.temp
@@ -104,35 +102,52 @@ $(document).ready(function(){
                 dayThrHumid = data.list[2].main.humidity
                 dayFouHumid = data.list[3].main.humidity
                 dayFivHumid = data.list[4].main.humidity
+                // weather temp and humidity list for 5 day----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-                console.log(data)
+               
 
-                $("#iconDayOne").html("<img src='" + iconUrl  + "'>");
-                $("#iconDayTwo").html("<img src='" + iconUrl  + "'>");
-                $("#iconDayThr").html("<img src='" + iconUrl  + "'>");
-                $("#iconDayFou").html("<img src='" + iconUrl  + "'>");
-                $("#iconDayFiv").html("<img src='" + iconUrl  + "'>");
-
-
+                // print 5 day in each 5 day forcast box-------------------------------------------------------------------------------------------------
                 $('#DayOnePrint').text('Temp'+' ' +temp+'F°').append('<br>'+'Humd:'+' '+ dayOneHumid+' '+'%'+'</br>');
                 $('#DayTwoPrint').text('Temp'+' ' +temp+'F°').append('<br>'+'Humd:'+' '+ dayTwoHumid+' '+'%'+'</br>');
                 $('#DayThrPrint').text('Temp'+' ' +temp+'F°').append('<br>'+'Humd:'+' '+ dayThrHumid+' '+'%'+'</br>');
                 $('#DayFouPrint').text('Temp'+' ' +temp+'F°').append('<br>'+'Humd:'+' '+ dayFouHumid+' '+'%'+'</br>');
                 $('#DayFivPrint').text('Temp'+' ' +temp+'F°').append('<br>'+'Humd:'+' '+ dayFivHumid+' '+'%'+'</br>');
-
                 
-                // $('#dayOne');
+            }
+        });
+    }
+    else {
+        alert('oof')
+    }
+    })
+})
 
 
 
+$(document).ready(function(){
 
-                // console.log(data.main.feels_like)
-                // console.log(data.main.temp_min)
-                // console.log(data.main.temp_max)
-                // console.log(data.main.humidity)
-                // console.log(data.wind.speed)
-                // console.log(data.wind)
+    $('#searchBtn').click(function(){
+
+    var city = $('#search').val();
+    var storedLat = JSON.parse(localStorage.getItem("Lat"))
+    var storedLon = JSON.parse(localStorage.getItem("Lon"))
+
+    if(city != ''){
+
+        $.ajax({
+
+            url: "http://api.openweathermap.org/data/2.5/uvi?http://api.openweathermap.org/data/2.5/uvi/forecast?"+
+            "&appid=1fdbaf1673606b82b778b52e97f9ce57"+
+            "&lat="+storedLat+
+             "&lon="+storedLon+
+             "&cnt=1",
+            type: "GET",
+            dataType: "jsonp",
+            success: function (data) {
+                  
+                console.log(data)
                 
+
             }
         });
     }
