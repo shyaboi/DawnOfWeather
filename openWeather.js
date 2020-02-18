@@ -107,11 +107,11 @@ $(document).ready(function(){
                
 
                 // print 5 day in each 5 day forcast box-------------------------------------------------------------------------------------------------
-                $('#DayOnePrint').text('Temp'+' ' +temp+'F°').append('<br>'+'Humd:'+' '+ dayOneHumid+' '+'%'+'</br>');
-                $('#DayTwoPrint').text('Temp'+' ' +temp+'F°').append('<br>'+'Humd:'+' '+ dayTwoHumid+' '+'%'+'</br>');
-                $('#DayThrPrint').text('Temp'+' ' +temp+'F°').append('<br>'+'Humd:'+' '+ dayThrHumid+' '+'%'+'</br>');
-                $('#DayFouPrint').text('Temp'+' ' +temp+'F°').append('<br>'+'Humd:'+' '+ dayFouHumid+' '+'%'+'</br>');
-                $('#DayFivPrint').text('Temp'+' ' +temp+'F°').append('<br>'+'Humd:'+' '+ dayFivHumid+' '+'%'+'</br>');
+                $('#DayOnePrint').text('Temp'+' ' +temp+'F°').append('<br>'+'Hum:'+' '+ dayOneHumid+'%'+'</br>');
+                $('#DayTwoPrint').text('Temp'+' ' +temp+'F°').append('<br>'+'Hum:'+' '+ dayTwoHumid+'%'+'</br>');
+                $('#DayThrPrint').text('Temp'+' ' +temp+'F°').append('<br>'+'Hum:'+' '+ dayThrHumid+'%'+'</br>');
+                $('#DayFouPrint').text('Temp'+' ' +temp+'F°').append('<br>'+'Hum:'+' '+ dayFouHumid+'%'+'</br>');
+                $('#DayFivPrint').text('Temp'+' ' +temp+'F°').append('<br>'+'Hum:'+' '+ dayFivHumid+'%'+'</br>');
                 
             }
         });

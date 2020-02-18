@@ -1,39 +1,51 @@
 #leftBar {
-    padding: 5%;
+    opacity: 70%;
     position: absolute;
-    background-color: aquamarine;
+    background: rgb(81,197,255);
+background: linear-gradient(270deg, rgba(81,197,255,1) 35%, rgba(0,106,159,1) 100%);
     min-height: 100%;
+    width: 100%;
 }
 /* left search row bar--------------------------------------------------------------------------------------------------------- */
 #bigBox {
-    background-color: blue;
     position: absolute;
     min-height: 100%;
 }
 /* box containing search and past cities box----------------------------------------------------------------------------------- */
+
+#SearchBar {
+    padding-top: 20%;
+    top: 15%;
+    position: relative;
+    font-size: x-large;
+
+}
+
+
 #pastCities {
-    height: 100%;
+    padding-top: 32%;
+    position: relative;
 }
 
 /* left search row bar--------------------------------------------------------------------------------------------------------- */
 /* body--------------------------------------------------------------------------------------------------------------------------------------- */
 body {
-    background-color: chocolate;
 }
 /* body ------------------------------------------------------------------------------------------------------------*/
 /* 2 row content and container------------------------------------------------------------------------------------------------ */
 
 
 .rightCont {
-    left: 28%;
+    left: 18%;
     position: fixed;
-    padding: 2%;
     min-height: 100%;
     width: 100%;
-    background-color: crimson;
 }
 
 #clickContent {
+    opacity: 70%;
+    font-size: x-large;
+    font-family: 'Gruppo', cursive;
     flex: auto;
     padding: 5%;
     position: fixed;
@@ -43,22 +55,33 @@ body {
 }
 
 #cityName {
-    font-size: xx-large;
+    font-size: xxx-large;
     font-family: 'Gruppo', cursive;
     top: auto;
     position: relative;
-    padding: 5%;
-    height: 10%;
+    padding: 1%;
     text-align: center;
     width: 100%;
-    background-color: blueviolet;
 }
 
+#cW {
+    font-family: 'Gruppo', cursive;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+  }
+
+
 #innerContent {
+    opacity: 70%;
     position: relative;
     text-align: center;
     height: 100%;
-    background-color: darkgoldenrod;
 }
 
 #currentWeather {
@@ -68,7 +91,6 @@ body {
     height: 60%;
     float: left;
     text-align: left;
-    background-color: brown;
     width: 78%;
 }
 
@@ -76,7 +98,6 @@ body {
     position: relative;
     font-size: x-large;
     padding: 1%;
-    background-color: burlywood;
     font-family: 'Gruppo', cursive;
 }
 
@@ -84,7 +105,6 @@ body {
     position: relative;
     font-size: x-large;
     font-family: 'Gruppo', cursive;
-    background-color: chartreuse;
     padding: 1%;
 }
 
@@ -92,11 +112,12 @@ body {
     position: relative;
     font-size: x-large;
     font-family: 'Faster One', cursive;
-    background-color: crimson;
     padding: 1%;
 }
 /* ------------------------------------------------------------------------------------------------------------ */
 #fiveDay {
+    opacity: 70%;
+    text-align: start;
     top: 60%;
     /* flex: content; */
     padding: 5%;
@@ -108,6 +129,7 @@ body {
 
 
 #fiveDayInnerContent {
+    position: fixed;
     height: 50%;
     background-color: darkgreen;
 }
@@ -115,18 +137,30 @@ body {
 
 
 #dayOne {
+    top: 5%;
+    color: wheat;
+    font-size: smaller;
     font-family: 'Russo One', sans-serif;
     height: 100%;
-    top: 0;
+    margin: 1%;
     float: left;
     position: relative;
-    margin: 1%;
     padding: 5%;
     background-color: black;
 }
+
+#DayOnePrint {
+    float: left;
+    padding: 1%;
+    position: relative;
+    text-align: left;
+}
+
 
 
 #dayTwo {
+    color: wheat;
+    font-size: smaller;
     font-family: 'Russo One', sans-serif;
     height: 100%;
     margin: 1%;
@@ -134,9 +168,20 @@ body {
     position: relative;
     padding: 5%;
     background-color: black;
+}
+
+#DayTwoPrint {
+    float: left;
+    padding: 1%;
+    position: relative;
+    text-align: left;
 }
 
 #dayThr {
+    top: -5%;
+    color: wheat;
+    font-size: smaller;
+    text-align: center;
     font-family: 'Russo One', sans-serif;
     height: 100%;
     float: left;
@@ -144,9 +189,19 @@ body {
     position: relative;
     padding: 5%;
     background-color: black;
+}
+
+#DayThrPrint {
+    float: left;
+    padding: 1%;
+    position: relative;
+    text-align: left;
 }
 
 #dayFou {
+    top: -10%;
+    color: wheat;
+    font-size: smaller;
     font-family: 'Russo One', sans-serif;
     height: 100%;
     margin: 1%;
@@ -156,7 +211,18 @@ body {
     background-color: black;
 }
 
+
+#DayFouPrint {
+    float: left;
+    padding: 1%;
+    position: relative;
+    text-align: left;
+}
+
 #dayFiv {
+    top: -15%;
+    color: wheat;
+    font-size: smaller;
     font-family: 'Russo One', sans-serif;
     height: 100%;
     margin: 1%;
@@ -165,8 +231,16 @@ body {
     padding: 5%;
     background-color: black;
 }
+
+#DayFivPrint {
+    float: left;
+    padding: 1%;
+    position: relative;
+    text-align: left;
+}
 /* buttons ------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 #search {
+    position: relative;
     width: 100%;
 }
 /* buttons ------------------------------------------------------------------------------------------------------------------------------------------------------------*/

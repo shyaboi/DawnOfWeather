@@ -15,35 +15,45 @@
     <!-- ajax--------------------------------------------------------------------------------------------------------->
     <!-- google font links--------------------------------------------------------------------------------------------->
     <link href="https://fonts.googleapis.com/css?family=Faster+One|Gruppo|Russo+One&display=swap" rel="stylesheet">   <!-- google font links--------------------------------------------------------------------------------------------->
-
 </head>
 <body>
+    <video autoplay muted loop id="myVideo">
+        <source src="/Users/e/code/homework/DawnOfWeather/Assests/clouds.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
 <div class="container-fluid" id="bigBox">
     
-    <div class="col-3" id="leftBar">
-        Enter City Here
-        <div class="input-group">
-            <input type="text" class="form-control" id="search" placeholder="Example: Tokyo" aria-describedby="button-addon4">
-            </div>
-           
+    <div class="col-2" id="leftBar">
+        <div class="container-fluid" id="SearchBar">
+            Enter City Here
 
-              <button class="btn btn-outline-secondary" type="button" id="searchBtn">Search</button>
-              <button class="btn btn-outline-secondary" type="button">somethingelse</button>
-          </div>
-<ul id="pastCities">              
+            <div class="input-group">
+                
+                <input type="text" class="form-control" id="search" placeholder="Example: Tokyo" aria-describedby="button-addon4">
+            </div>
+            
+            
+            <button class="btn btn-outline-secondary" type="button" id="searchBtn">Search</button>
+            <!-- <button class="btn btn-outline-secondary" type="button">somethingelse</button> -->
+        </div>
+        <div class="container">              
+            <ul id="pastCities">              
                 <li>paster cities</li>
-              <li>past cities</li>
-          </div>
+                <li>past cities</li>
+            </div>
         </ul>
+    </div>
+        </div>
         <div class="container rightCont">
 <div class="row-6">
     <div class="container" id="clickContent">
         <div class="container" id="innerContent">
-            <div class="container">
+            <div class="container" id="cW">
                 
                 <span class="badge" id="cityName"> 
 </span>
-<div id="icon"><img id="icon2" src="" alt="Weather icon"></div>
+<div id="icon"><img id="icon2" src="" alt=""></div>
+Current Weather
             </div>
             <div class="container" id="currentWeather">
                 
@@ -63,41 +73,46 @@
     <div class="container row-cols-6" id="fiveDay">
         <div class="container" id="dayOne">
             <div id="iconDayOne">
-                <img id="icon" src="" alt="Weather icon">
+                <img id="icon" src="" alt="">
             </div>
             <div class="container col-2" id="DayOnePrint">
+                Next
             </div>
         </div>
              <br>
              <div class="container" id="dayTwo">
                 <div id="iconDayTwo">
-                    <img id="icon" src="" alt="Weather icon">
+                    <img id="icon" src="" alt="">
                 </div>
              <div class="container col-2" id="DayTwoPrint">
+                 Five
             </div>
              </div>
             <br>
             <div class="container" id="dayThr">
                 <div id="iconDayThr">
-                    <img id="icon" src="" alt="Weather icon">
+                    <img id="icon" src="" alt="">
                 </div>
                 <div class="container col-2" id="DayThrPrint">
+                    Day
                 </div>
             </div>
             <br>
             <div class="container" id="dayFou">
                 <div id="iconDayFou">
-                    <img id="icon" src="" alt="Weather icon">
+                    <img id="icon" src="" alt="">
                 </div>
                         <div class="container col-2" id="DayFouPrint">
+                            Fourcast
                 </div>
             </div>
             <br>
             <div class="container col-2" id="dayFiv">
                 <div id="iconDayFiv">
-                    <img id="icon" src="" alt="Weather icon">
+                    <img id="icon" src="" alt="">
                 </div>
                 <div class="container col-2" id="DayFivPrint">
+                    !
                 </div>
             </div>
 
