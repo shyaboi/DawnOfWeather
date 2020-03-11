@@ -2,7 +2,8 @@
 // var cit = ''
 // localStorage.setItem("City: ", JSON.stringify(cit))
 // storedCities = element
-var retrievedObject = localStorage.getItem('City: ');
+var cityArr = require("/openWeather.js");
+var retrievedObject = localStorage.getItem('City: ', cityArr);
 
 console.table(retrievedObject);
 

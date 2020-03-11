@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------------------------------------------------------------------------open weather temp/ wind GET
 cityArr = []
 
-
+module.export = cityArr
 $(document).ready(function(){
 
     $('#searchBtn').click(function(){
@@ -33,6 +33,8 @@ $(document).ready(function(){
                 $("#icon").html("<img src='" + iconUrl  + "'>");
                 localStorage.setItem("Lat", JSON.stringify(lat))
                 localStorage.setItem("Lon", JSON.stringify(lon))
+                module.export = lat;
+                module.export = lon;
                 // main temp print------------------------------------------------------------------------------------------------------------------------------
                 $('#cityName').text(cityName)
                 $('#currentTemp').text('Temperature'+' ' +temp+' '+'F°');
@@ -46,7 +48,7 @@ $(document).ready(function(){
     }
     })
 })
-
+console.log(lat,lon);
 function init() {
     var storedCity = JSON.parse(localStorage.getItem("City: "))
     if (storedCity !== null){
