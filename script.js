@@ -1,11 +1,20 @@
 
-var cit = ''
-localStorage.setItem("City", JSON.stringify(cit))
+// var cit = ''
+// localStorage.setItem("City: ", JSON.stringify(cit))
+// storedCities = element
+var retrievedObject = localStorage.getItem('City: ');
 
+console.table(retrievedObject);
 
-
-function storedNS() {
-}
+// var ul = document.createElement('ul');
+// 		document.getElementById('myList').appendChild(ul);
+ 
+// 		retrievedObject.forEach(function(retrievedObject){
+// 			var li = document.createElement('li');
+// 			ul.appendChild(li);
+//             li.innerHTML += retrievedObject;
+//             li.append.innerHTML("")
+//         })
 
 
 $(document).ready(function() {

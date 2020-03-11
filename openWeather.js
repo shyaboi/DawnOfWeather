@@ -18,7 +18,9 @@ $(document).ready(function(){
             dataType: "jsonp",
             success: function (data) {
                 // city storage-----
-                localStorage.setItem("City", JSON.stringify(city))
+                cityArr.push(city)
+                localStorage.setItem("City: ", JSON.stringify(cityArr))
+                // console.table(cityArr);
                 // data to var-----------------------------------------------------------------------------------------------------------------
                 cityName = data.name
                 temp = data.main.temp
@@ -46,7 +48,7 @@ $(document).ready(function(){
 })
 
 function init() {
-    var storedCity = JSON.parse(localStorage.getItem("City"))
+    var storedCity = JSON.parse(localStorage.getItem("City: "))
     if (storedCity !== null){
         cityArr = storedCity
 }}
@@ -145,7 +147,7 @@ $(document).ready(function(){
             dataType: "jsonp",
             success: function (data) {
                   
-                console.log(data)
+                console.log(data.uv)
                 
 
             }
