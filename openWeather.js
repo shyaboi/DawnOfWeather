@@ -236,16 +236,18 @@ $(document).ready(function(){
             // console.table(retrievedObject);
             
             $('#uvIndex').text('UV Index:'+' ' +response.value)
-            if (response.value > 5) {
+            if (response.value > 5)
+            {
                $('#uvIndex').css("background", "rgb(255,231,231)");
                $('#uvIndex').css("background", "linear-gradient(90deg, rgba(255,231,231,1) 0%, rgba(255,0,0,1) 100%)");
-               if (response.value < 3) {
-                  $('#uvIndex').css("background", "rgb(0,255,44)");
-                  $('#uvIndex').css("background", "linear-gradient(145deg, rgba(0,255,44,1) 0%, rgba(232,255,236,1) 100%)");
-               }
             }  
             
-            else{ //   console.log("uvResponse", response);
+            else if (response.value < 3)
+            {
+               $('#uvIndex').css("background", "rgb(0,255,44)");
+               $('#uvIndex').css("background", "linear-gradient(145deg, rgba(0,255,44,1) 0%, rgba(232,255,236,1) 100%)");
+            }
+            else { //   console.log("uvResponse", response);
              $('#uvIndex').css("background", "rgb(34,193,195)");
              $('#uvIndex').css("background", "linear-gradient(145deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%)");
             }
