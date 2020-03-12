@@ -28,6 +28,10 @@
     if (event.keyCode === 13) { 
         $("#searchBtn").click(); 
         ($('#search').val());
+        // var lastItem = cityPop.pop();
+        var cityPop = JSON.parse(localStorage.getItem("City: "))
+        cit = cityPop.slice(-1)[0]
+    $('#pastCities').append('<li>'+cit+'</br>');
         // var retrievedObject = localStorage.getItem('City: ', cityArr);
         // console.table(retrievedObject);
     } 

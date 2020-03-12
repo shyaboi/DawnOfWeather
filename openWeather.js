@@ -143,9 +143,7 @@ uvIndex(storedLat,storedLon)
               method: "GET",
               dataType: "json"
             }).then(function(response) {
-            var cityPop = JSON.parse(localStorage.getItem("City: "))
-            // var lastItem = cityPop.pop();
-        $('#pastCities').append('<li>'+cityPop.slice(-1)[0]+'</br>');
+           
 
         // console.table(retrievedObject);
         
@@ -182,3 +180,78 @@ for (let i = 0; i < cityStore.length; i++) {
     const element = cityStore[i];
     $('#pastCities').append('<li>'+cityStore[i]+'</br>');
 }}
+
+$(document).ready(function(){
+
+    $('#pastCities li').click(function(e){
+      let str = this.innerHTML;
+      str = str.slice(0, -4); 
+      console.log(str);
+      alert(str);
+    var city = str
+    $.ajax({
+
+        url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial" + 
+        "&APPID=1fdbaf1673606b82b778b52e97f9ce57",
+        type: "GET",
+        dataType: "jsonp",
+        success: function (data) {
+            // city storage-----
+            cityArr.push(city)
+            localStorage.setItem("City: ", JSON.stringify(cityArr))
+            // console.table(cityArr);
+            // data to var-----------------------------------------------------------------------------------------------------------------
+            cityName = data.name
+            temp = data.main.temp
+            humid = data.main.humidity
+            windSpeed = data.wind.speed
+            lon = data.coord.lon
+            lat = data.coord.lat
+            var iconCode = data.weather[0].icon;
+            var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+            $("#icon").html("<img src='" + iconUrl  + "'>");
+            localStorage.setItem("Lat", JSON.stringify(lat))
+            localStorage.setItem("Lon", JSON.stringify(lon))
+            // module.export = lat;
+            // module.export = lon;
+            // main temp print------------------------------------------------------------------------------------------------------------------------------
+            $('#cityName').text(cityName)
+            $('#currentTemp').text('Temperature'+' ' +temp+' '+'F°');
+            $('#currentHumid').text('Humidity:'+' '+humid+' '+'%');
+            $('#currentWind').text('Wind Speed:'+' '+windSpeed+' '+'MPH');
+            // console.log(lat,lon);
+            var storedLat = JSON.parse(localStorage.getItem("Lat"))
+            var storedLon = JSON.parse(localStorage.getItem("Lon"))
+            uvIndex(storedLat,storedLon)
+            function uvIndex(latitude, longitude) {
+                var queryURL = `https://api.openweathermap.org/data/2.5/uvi?appid=1fdbaf1673606b82b778b52e97f9ce57&lat=${latitude}&lon=${longitude}`;
+                $.ajax({
+                  url: queryURL,
+                  method: "GET",
+                  dataType: "json"
+                }).then(function(response) {
+               
+    
+            // console.table(retrievedObject);
+            
+            $('#uvIndex').text('UV Index:'+' ' +response.value)
+            if (response.value > 5.5) {
+               $('#uvIndex').css("background", "rgb(255,231,231)");
+               $('#uvIndex').css("background", "linear-gradient(90deg, rgba(255,231,231,1) 0%, rgba(255,0,0,1) 100%)");
+            }  
+            if (response.value < 3.5) {
+               $('#uvIndex').css("background", "rgb(0,255,44)");
+               $('#uvIndex').css("background", "linear-gradient(145deg, rgba(0,255,44,1) 0%, rgba(232,255,236,1) 100%)");
+            }
+            
+            else{ //   console.log("uvResponse", response);
+             $('#uvIndex').css("background", "rgb(34,193,195)");
+             $('#uvIndex').css("background", "linear-gradient(145deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%)");
+            }
+              });
+            }
+            
+        }
+    });
+    })
+  })
