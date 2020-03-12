@@ -63,6 +63,12 @@ body {
     text-align: center;
     width: 100%;
 }
+ul {
+    font-size: x-large;
+    font: bolder;
+    font-family: 'Gruppo', cursive;
+
+}
 
 #cW {
     font-family: 'Gruppo', cursive;
