@@ -1,7 +1,6 @@
 // ----------------------------------------------------------------------------------------------------------------------------------------open weather temp/ wind GET
 cityArr = []
 
-module.export = cityArr
 $(document).ready(function(){
 
     $('#searchBtn').click(function(){
@@ -33,13 +32,14 @@ $(document).ready(function(){
                 $("#icon").html("<img src='" + iconUrl  + "'>");
                 localStorage.setItem("Lat", JSON.stringify(lat))
                 localStorage.setItem("Lon", JSON.stringify(lon))
-                module.export = lat;
-                module.export = lon;
+                // module.export = lat;
+                // module.export = lon;
                 // main temp print------------------------------------------------------------------------------------------------------------------------------
                 $('#cityName').text(cityName)
                 $('#currentTemp').text('Temperature'+' ' +temp+' '+'F°');
                 $('#currentHumid').text('Humidity:'+' '+humid+' '+'%');
                 $('#currentWind').text('Wind Speed:'+' '+windSpeed+' '+'MPH');
+                // console.log(lat,lon);
             }
         });
     }
@@ -48,7 +48,6 @@ $(document).ready(function(){
     }
     })
 })
-console.log(lat,lon);
 function init() {
     var storedCity = JSON.parse(localStorage.getItem("City: "))
     if (storedCity !== null){
@@ -131,32 +130,55 @@ $(document).ready(function(){
 $(document).ready(function(){
 
     $('#searchBtn').click(function(){
-
     var city = $('#search').val();
     var storedLat = JSON.parse(localStorage.getItem("Lat"))
     var storedLon = JSON.parse(localStorage.getItem("Lon"))
 
     if(city != ''){
+uvIndex(storedLat,storedLon)
+        function uvIndex(latitude, longitude) {
+            var queryURL = `https://api.openweathermap.org/data/2.5/uvi?appid=1fdbaf1673606b82b778b52e97f9ce57&lat=${latitude}&lon=${longitude}`;
+            $.ajax({
+              url: queryURL,
+              method: "GET",
+              dataType: "json"
+            }).then(function(response) {
+            var cityPop = JSON.parse(localStorage.getItem("City: "))
+            // var lastItem = cityPop.pop();
+        $('#pastCities').append('<li>'+cityPop.slice(-1)[0]+'</br>');
 
-        $.ajax({
-
-            url: "https://api.openweathermap.org/data/2.5/uvi?http://api.openweathermap.org/data/2.5/uvi/forecast?"+
-            "&appid=1fdbaf1673606b82b778b52e97f9ce57"+
-            "&lat="+storedLat+
-             "&lon="+storedLon+
-             "&cnt=1",
-            type: "GET",
-            dataType: "jsonp",
-            success: function (data) {
-                  
-                console.log(data.uv)
-                
-
-            }
-        });
+        // console.table(retrievedObject);
+        
+        $('#uvIndex').text('UV Index:'+' ' +response.value)
+        if (response.value > 5.5) {
+           $('#uvIndex').css("background", "rgb(255,231,231)");
+           $('#uvIndex').css("background", "linear-gradient(90deg, rgba(255,231,231,1) 0%, rgba(255,0,0,1) 100%)");
+        }  
+        if (response.value < 3.5) {
+           $('#uvIndex').css("background", "rgb(0,255,44)");
+           $('#uvIndex').css("background", "linear-gradient(145deg, rgba(0,255,44,1) 0%, rgba(232,255,236,1) 100%)");
+        }
+        
+        else{ //   console.log("uvResponse", response);
+         $('#uvIndex').css("background", "rgb(34,193,195)");
+         $('#uvIndex').css("background", "linear-gradient(145deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%)");
+        }
+          });
+        }
     }
     else {
         alert('oof')
     }
     })
 })
+// var retrievedObject =  localStorage.getItem('City: ', cityArr);
+
+
+    
+// }
+var cityStore = JSON.parse(localStorage.getItem("City: "))
+if (cityStore != null) {
+for (let i = 0; i < cityStore.length; i++) {
+    const element = cityStore[i];
+    $('#pastCities').append('<li>'+cityStore[i]+'</br>');
+}}
